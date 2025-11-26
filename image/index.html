@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirgi Mukti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#8c23cf',
+                        'brand-secondary': '#f4c542',
+                        'brand-light': '#f7f7ff',
+                    },
+                    maxWidth: {
+                        'landing': '450px',
+                    },
+                    fontFamily: {
+                        'sans': ['Tiro Devanagari Hindi', 'serif'],
+                        'tiro': ['Tiro Devanagari Hindi', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+            font-weight: 400;
+            /* Space for fixed CTA */
+        }
+           /* Container width control */
+        .main-container {
+            max-width: 450px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 450px) {
+            .main-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans leading-relaxed bg-brand-light text-gray-800">
+    <div class=" w-full main-container">
+        <!-- Header -->
+        <header
+            class="bg-brand-primary border-b-2 border-gray-100 text-white p-4 flex justify-between items-center max-[450px]:p-5  max-[450px]:px-4">
+            <div class="flex items-center gap-4 max-[450px]:gap-3">
+                <div
+                    class="brand-text-enhanced font-tiro text-4xl font-bold max-[450px]:text-4xl hover:scale-105 transition-transform duration-300 cursor-default">
+                    Gath Heal
+                </div>
+            </div>
+            <button
+                class="bg-brand-secondary text-brand-primary border-none px-6 py-3 rounded-lg font-bold text-xl cursor-pointer transition-all duration-300 hover:bg-opacity-80 max-[450px]:text-xl max-[450px]:px-4 max-[450px]:py-3"
+                onclick="scrollToContact()">
+                <span class="relative z-10">🛒 ऑर्डर करें</span>
+            </button>
+        </header>
+        <!-- Main Content -->
+        <main class="bg-brand-primary">
+
+            <!-- Contact Section -->
+            <section class="px-4 py-4 bg-brand-primary text-white max-[450px]:py-6 max-[450px]:px-3" id="contact">
+                <form id="contactForm">
+                    <div class="mb-4 max-[450px]:mb-3">
+                        <label for="name"
+                            class="block mb-2 text-xl text-white font-tiro font-semibold max-[450px]:text-lg max-[450px]:mb-1">आपका
+                            नाम:</label>
+                        <input type="text" id="name" name="name" required placeholder="अपना नाम लिखें"
+                            class="w-full p-3 border-none rounded text-lg text-brand-primary placeholder-gray-500 font-tiro max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+                    </div>
+                    <div class="mb-4 max-[450px]:mb-3">
+                        <label for="phone"
+                            class="block mb-2 text-xl text-white font-tiro font-semibold max-[450px]:text-lg max-[450px]:mb-1">फोन
+                            नंबर:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="अपना फोन नंबर लिखें"
+                            class="w-full p-3 border-none rounded text-lg text-brand-primary placeholder-gray-500 font-tiro max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
+                    </div>
+                    <button type="submit"
+                        class="bg-brand-secondary text-brand-primary border-none py-4 px-8 rounded text-2xl font-tiro font-bold cursor-pointer w-full mt-4 transition-all duration-300 hover:bg-opacity-90 max-[450px]:py-3 max-[450px]:px-4 max-[450px]:text-lg max-[450px]:mt-3">
+                        <span>✨</span>
+                        अभी ऑर्डर करें
+                        <span>✨</span>
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="bg-brand-primary text-white py-4 px-4 text-center max-[450px]:py-4 max-[450px]:px-3">
+            <div class="text-sm text-gray-300 mt-4 font-tiro max-[450px]:text-xs max-[450px]:mt-2">
+                <p><strong class="font-tiro font-semibold">Disclaimer :-</strong> Results may vary by
+                    individual.
+                    Consult
+                    with a healthcare professional for personalized hearing assessment. This device is not
+                    intended to
+                    diagnose, treat, cure, or prevent any medical condition.</p>
+            </div>
+        </footer>
+        <!-- Thank You Modal -->
+        <div id="thankYouModal"
+            class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center">
+            <div
+                class="bg-brand-light p-8 rounded-lg text-center max-w-sm mx-4 max-[450px]:p-6 max-[450px]:max-w-xs border-2 border-brand-secondary">
+                <h2 class="text-brand-primary mb-4 text-2xl font-tiro font-bold max-[450px]:text-xl max-[450px]:mb-3">
+                    धन्यवाद!</h2>
+                <p class="text-xl mb-6 font-tiro font-medium max-[450px]:text-lg max-[450px]:mb-4 text-gray-700">
+                    हमने
+                    आपकी
+                    जानकारी
+                    प्राप्त कर ली है और आपकी
+                    मुफ्त सलाह निर्धारित करने के लिए 24 घंटे के भीतर आपसे संपर्क करेंगे।</p>
+            </div>
+        </div>
+
+        <!-- Fixed CTA Form at Bottom -->
+        <div id="fixedCTA"
+            class="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-brand-primary to-purple-700 shadow-2xl max-w-[450px] w-full border-t-4 border-brand-secondary">
+            <div class="px-3 py-3 w-full">
+                <div class="flex items-center justify-between gap-2">
+                    <!-- Offer Text -->
+                    <div class="flex-1 text-white">
+                        <div class="text-sm font-tiro text-brand-secondary font-extrabold mb-1 max-[450px]:text-sm">
+                            🔥 "Safe Body – Safe Life" Offer
+                        </div>
+                        <div class="text-xs opacity-90 font-tiro font-bold max-[450px]:text-xs">
+                            स्टॉक खत्म होने से पहले प्राप्त करें
+                        </div>
+                    </div>
+
+                    <!-- Order Now Button -->
+                    <button id="ctaButton" onclick="scrollToContact()"
+                        class="cta-button bg-brand-secondary text-brand-primary px-4 py-2 rounded-xl font-tiro font-extrabold text-sm transition-all duration-300 shadow-lg hover:scale-105 max-[450px]:px-3 max-[450px]:py-1 max-[450px]:text-sm pulse-animation">
+                        🛒 Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showThankYou() {
+            document.getElementById('thankYouModal').style.display = 'flex';
+
+            // Auto close after 2 seconds
+            setTimeout(() => {
+                closeModal();
+            }, 2000);
+        }
+
+        function closeModal() {
+            document.getElementById('thankYouModal').style.display = 'none';
+            document.getElementById('contactForm').reset();
+        }
+
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleFAQ(faqNumber) {
+            const faqItem = document.querySelectorAll('.faq-item')[faqNumber - 1];
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = faqItem.querySelector('.faq-icon');
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach((item, index) => {
+                if (index !== faqNumber - 1) {
+                    item.style.maxHeight = '0px';
+                    document.querySelectorAll('.faq-icon')[index].textContent = '+';
+                    document.querySelectorAll('.faq-icon')[index].style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current FAQ
+            if (isOpen) {
+                answer.style.maxHeight = '0px';
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+
+                // Smooth scroll to make sure the opened FAQ is visible
+                setTimeout(() => {
+                    faqItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }, 200);
+            }
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            if (name && phone) {
+                showThankYou();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('thankYouModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Scroll Animation for Success Stories
+        function initScrollAnimations() {
+            const animateElements = document.querySelectorAll('.scroll-animate');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.getAttribute('data-delay') || 0;
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, parseFloat(delay) * 1000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            animateElements.forEach((element) => {
+                observer.observe(element);
+            });
+        }
+
+        // Initialize scroll animations when page loads
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+        // Fixed CTA Button Animation
+        function startCTAAnimation() {
+            const ctaButton = document.getElementById('ctaButton');
+            if (ctaButton) {
+                // Add animation classes
+                ctaButton.classList.add('cta-animate', 'cta-glow');
+
+                // Remove animation after 2 seconds
+                setTimeout(() => {
+                    ctaButton.classList.remove('cta-animate', 'cta-glow');
+                }, 2000);
+            }
+        }
+
+        // Start CTA animation every 5 seconds
+        setInterval(startCTAAnimation, 5000);
+
+        // Start the first animation after 2 seconds of page load
+        setTimeout(startCTAAnimation, 2000);
+
+        // Enhanced Flash Animation for Solution CTA Button
+        function startSolutionCTAFlash() {
+            const solutionButton = document.getElementById('solutionCTAButton');
+            if (solutionButton) {
+                // Add extra intensity flash class
+                solutionButton.classList.add('super-flash');
+
+                // Remove extra flash after animation cycle
+                setTimeout(() => {
+                    solutionButton.classList.remove('super-flash');
+                }, 3000);
+            }
+        }
+
+        // Start solution button flash animation every 8 seconds
+        setInterval(startSolutionCTAFlash, 8000);
+
+        // Start the first solution flash animation after 4 seconds of page load
+        setTimeout(startSolutionCTAFlash, 4000);
+    </script>
+
+</body>
+
+</html>
