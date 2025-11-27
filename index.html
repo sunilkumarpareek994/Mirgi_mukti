@@ -5,22 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirgi Mukti</title>
+    <link href="https://fonts.googleapis.com/css2?family=eczer:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-primary': '#8c23cf',
-                        'brand-secondary': '#f4c542',
+                        'brand-primary': '#1f7f12',
+                        'brand-secondary': '#FFB400',
                         'brand-light': '#f7f7ff',
+                        'brand-muted': '#e8c9af',
+                        "brand-accent": '#ffffff',
                     },
                     maxWidth: {
                         'landing': '450px',
                     },
                     fontFamily: {
-                        'sans': ['Tiro Devanagari Hindi', 'serif'],
-                        'tiro': ['Tiro Devanagari Hindi', 'serif'],
+                        'eczer': ['eczer', 'serif'],
+                        'eczer': ['Eczer', 'sans-serif'],
                     }
                 }
             }
@@ -32,7 +35,8 @@
             font-weight: 400;
             /* Space for fixed CTA */
         }
-           /* Container width control */
+
+        /* Container width control */
         .main-container {
             max-width: 450px;
             margin: 0 auto;
@@ -45,6 +49,145 @@
                 max-width: 100%;
             }
         }
+
+        /* Header slide-down animation */
+        header {
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Button animations */
+        .btn-bounce {
+            animation: bounceIn 1s ease-out 0.5s both;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .pulse-button {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(231, 218, 175, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(231, 218, 175, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(231, 218, 175, 0);
+            }
+        }
+
+        .glow-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-effect:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .glow-effect:hover:before {
+            left: 100%;
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        /* CTA Button enhanced animation */
+        .pulse-animation {
+            animation: ctaPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(110, 198, 87, 0.7);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 8px rgba(110, 198, 87, 0);
+            }
+        }
+
+        /* Google Review Cards */
+        .review-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f7f7ff 100%);
+            border-left: 4px solid #6ec657;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(110, 198, 87, 0.15);
+        }
+
+        .review-content {
+            line-height: 1.6;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 
@@ -52,21 +195,776 @@
     <div class=" w-full main-container">
         <!-- Header -->
         <header
-            class="bg-brand-primary border-b-2 border-gray-100 text-white p-4 flex justify-between items-center max-[450px]:p-5  max-[450px]:px-4">
-            <div class="flex items-center gap-4 max-[450px]:gap-3">
-                <div
-                    class="brand-text-enhanced font-tiro text-4xl font-bold max-[450px]:text-4xl hover:scale-105 transition-transform duration-300 cursor-default">
-                    Gath Heal
+            class="bg-brand-primary border-b-2 border-gray-100 text-brand-secondary p-4 flex justify-between items-center gap-6 max-[450px]:p-5 max-[450px]:px-4 max-[450px]:gap-4">
+            <div class="flex items-center gap-4 max-[450px]:gap-3 flex-1">
+                <div class="w-full"
+                    style="background-color:rgba(255,255,255,0.2); border-radius: 15px; padding: 8px 16px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                    <div
+                        class="brand-text-enhanced font-tiro text-2xl font-bold max-[450px]:text-2xl hover:scale-105 transition-transform duration-300 cursor-default text-white drop-shadow-lg text-center leading-tight">
+                        <div class="flex items-center justify-center gap-2 max-[450px]:gap-1 flex-wrap">
+                            <span
+                                class="inline-block text-brand-secondary animate-pulse text-1xl max-[450px]:text-xl">🌿</span>
+                            <span class="whitespace-nowrap text-brand-secondary">मिर्गी</span>
+                            <span class="whitespace-nowrap text-brand-secondary">मुक्ति</span>
+                            <span class="inline-block animate-pulse text-1xl max-[450px]:text-xl">✨</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button
-                class="bg-brand-secondary text-brand-primary border-none px-6 py-3 rounded-lg font-bold text-xl cursor-pointer transition-all duration-300 hover:bg-opacity-80 max-[450px]:text-xl max-[450px]:px-4 max-[450px]:py-3"
-                onclick="scrollToContact()">
+                class="bg-brand-secondary text-brand-accent font-bold border-none px-6 py-3 rounded-lg font-bold text-xl cursor-pointer transition-all duration-300 hover:bg-opacity-80 max-[450px]:text-xl max-[450px]:px-4 max-[450px]:py-3 btn-bounce pulse-button glow-effect flex-shrink-0"
+                onclick="scrollToContact()" onmouseenter="this.classList.add('shake')"
+                onmouseleave="this.classList.remove('shake')">
                 <span class="relative z-10">🛒 ऑर्डर करें</span>
             </button>
         </header>
         <!-- Main Content -->
         <main class="bg-brand-primary">
+
+            <!-- Hero Image Section -->
+            <section class="relative w-full bg-brand-primary h-auto ">
+                <img src="./image/hero3.png" alt="Mirgi Mukti Hero" class="w-full h-auto object-cover " />
+                <img src="./image/hero2.png" alt="Mirgi Mukti Hero" class="w-full h-auto object-cover " />
+            </section>
+
+            <!-- Problem Section -->
+            <section class="bg-white py-10 px-4 max-[450px]:py-8 max-[450px]:px-3">
+                <div class="main-container">
+                    <!-- Section Heading -->
+                    <h2 class="text-5xl font-eczer font-bold text-center mb-4 max-[450px]:text-4xl text-brand-primary">
+                        मिर्गी की असली परेशानियाँ
+                    </h2>
+                    <h3
+                        class="text-3xl font-eczer font-semibold text-center mb-10 max-[450px]:text-2xl max-[450px]:mb-8 text-gray-700">
+                        जिन्हें लोग समझ नहीं पाते
+                    </h3>
+
+                    <!-- Problems Grid -->
+                    <div class="grid grid-cols-1 gap-[5rem] max-[450px]:gap-[6rem] px-6 max-[450px]:px-4">
+
+                        <!-- Problem 1 -->
+                        <div class="relative">
+                            <img src="./image/pro1.png" alt="Problem 1"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>बार-बार पूरे शरीर में तेज़ झटके</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Problem 2 -->
+                        <div class="relative">
+                            <img src="./image/pro2.png" alt="Problem 2"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>अचानक बेहोशी में गिर जाना</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Problem 3 -->
+                        <div class="relative">
+                            <img src="./image/pro3.png" alt="Problem 3"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>दिमाग ब्लैंक हो जाना</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Problem 4 -->
+                        <div class="relative">
+                            <img src="./image/pro4.png" alt="Problem 4"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>Electrical imbalance के कारण body control खो देना</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Problem 5 -->
+                        <div class="relative">
+                            <img src="./image/pro5.png" alt="Problem 5"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>Stroke के बाद seizures का बढ़ जाना</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Problem 6 -->
+                        <div class="relative">
+                            <img src="./image/pro6.png" alt="Problem 6"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>हाथ-पैर कांपना, डर, panic</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Problem 7 -->
+                        <div class="relative">
+                            <img src="./image/pro7.png" alt="Problem 7"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>किसी छोटे से trigger से भी बड़ा दौरा बन जाना</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Problem 8 -->
+                        <div class="relative">
+                            <img src="./image/pro8.png" alt="Problem 8"
+                                class="w-full h-auto rounded-lg border-4 border-brand-primary shadow-lg">
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-brand-secondary text-black border-4 border-brand-primary shadow-xl max-[450px]:h-[100px]"
+                                style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
+                                <p class="font-eczer font-bold text-center leading-tight"
+                                    style="font-size: 1.5rem; line-height: 1.2;">
+                                    <strong>सड़कों, सीढ़ियों या भीड़ में अचानक दौरे से गिरने का डर</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Warning Message -->
+                    <div class="mt-18 max-[450px]:mt-16 text-center">
+                        <p class="text-3xl font-eczer font-bold text-red-600 leading-relaxed max-[450px]:text-2xl">
+                            <strong>मिर्गी को नज़रअंदाज़ करना दर्दनाक और खतरनाक दोनों हो सकता है।</strong>
+                        </p>
+                        <p class="text-2xl font-eczer text-gray-700 mt-2 max-[450px]:text-xl">
+                            दौरे धीरे-धीरे और तेजी से हो सकते हैं।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Introduction Section -->
+            <section class="bg-brand-primary py-8 max-[450px]:py-6">
+                <div class="main-container">
+                    <!-- Section Heading -->
+                    <h2
+                        class="text-5xl font-eczar font-bold text-center mb-12 max-[450px]:text-4xl max-[450px]:mb-8 text-white">
+                        आपके समक्ष प्रस्तुत है </h2>
+
+                    <!-- Product Image -->
+                    <div class="text-center">
+                        <img src="./image/productimage.png" alt="Mirgi Mukti Product"
+                            class="w-auto h-auto mx-auto object-cover shadow-2xl rounded-lg" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solution Section -->
+            <section  class="bg-gradient-to-br from-white via-gray-50 to-blue-50 py-12 px-4 max-[450px]:py-8 max-[450px]:px-3 relative overflow-hidden">
+                <div class="main-container relative z-10">
+                    <!-- Section Heading -->
+                    <div class="text-center mb-12 max-[450px]:mb-8">
+                        <div class="inline-block relative">
+                            <h2
+                                class="text-5xl font-eczar font-bold max-[450px]:text-4xl text-brand-primary drop-shadow-lg relative z-10 leading-relaxed">
+                                Mirgi Mukti से क्या-क्या फर्क महसूस होता है?
+                            </h2>
+                        </div>
+                        <div class="mt-4 flex justify-center">
+                            <div
+                                class="w-24 h-1 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full animate-pulse">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefits Table -->
+                    <div
+                        class="bg-white border-2 border-transparent bg-gradient-to-r from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden relative transform hover:scale-[1.02] transition-transform duration-300">
+                        <!-- Animated border -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-secondary to-green-400 rounded-3xl opacity-20 animate-pulse">
+                        </div>
+                        <div class="relative bg-white rounded-3xl m-1">
+                            <div class="space-y-0">
+                                <!-- Benefit 1 -->
+                                <div
+                                    class="group flex items-center gap-6 p-8 border-b border-gray-100 max-[450px]:p-5 max-[450px]:gap-4 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 transition-all duration-500 transform hover:scale-[1.02] relative overflow-hidden">
+                                    <!-- Animated background on hover -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-green-100 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    </div>
+                                    <div class="flex-shrink-0 relative z-10">
+                                        <div class="relative">
+                                            <div
+                                                class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 animate-pulse">
+                                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <div
+                                                class="absolute -inset-1 bg-green-400 rounded-full opacity-20 animate-ping">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-2xl font-eczar text-gray-800 max-[450px]:text-xl relative z-10 group-hover:text-gray-900 transition-colors duration-300">
+                                        <span
+                                            class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-semibold">
+                                            मिर्गी का बारंबार होना कम करने में मदद
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <!-- Benefit 2 -->
+                                <div
+                                    class="group flex items-center gap-6 p-8 border-b border-gray-100 max-[450px]:p-5 max-[450px]:gap-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-500 transform hover:scale-[1.02] relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    </div>
+                                    <div class="flex-shrink-0 relative z-10">
+                                        <div class="relative">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"
+                                                style="animation: pulse 2s infinite; animation-delay: 0.2s;">
+                                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                                                </svg>
+                                            </div>
+                                            <div class="absolute -inset-1 bg-blue-400 rounded-full opacity-20 animate-ping"
+                                                style="animation-delay: 0.2s;"></div>
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-2xl font-eczar text-gray-800 max-[450px]:text-xl relative z-10 group-hover:text-gray-900 transition-colors duration-300">
+                                        <span
+                                            class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-semibold">
+                                          मस्तिष्क असंतुलन को शांत करना
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <!-- Benefit 3 -->
+                                <div
+                                    class="group flex items-center gap-6 p-8 border-b border-gray-100 max-[450px]:p-5 max-[450px]:gap-4 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-500 transform hover:scale-[1.02] relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    </div>
+                                    <div class="flex-shrink-0 relative z-10">
+                                        <div class="relative">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"
+                                                style="animation: pulse 2s infinite; animation-delay: 0.4s;">
+                                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                            <div class="absolute -inset-1 bg-purple-400 rounded-full opacity-20 animate-ping"
+                                                style="animation-delay: 0.4s;"></div>
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-2xl font-eczar text-gray-800 max-[450px]:text-xl relative z-10 group-hover:text-gray-900 transition-colors duration-300">
+                                        <span
+                                            class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-semibold">
+                                            बेहोशी से गिरने के अवसरों को कम करना
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <!-- Benefit 4 -->
+                                <div
+                                    class="group flex items-center gap-6 p-8 border-b border-gray-100 max-[450px]:p-5 max-[450px]:gap-4 hover:bg-gradient-to-r hover:from-pink-50 hover:to-red-50 transition-all duration-500 transform hover:scale-[1.02] relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-pink-100 to-red-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    </div>
+                                    <div class="flex-shrink-0 relative z-10">
+                                        <div class="relative">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-red-500 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"
+                                                style="animation: pulse 2s infinite; animation-delay: 0.6s;">
+                                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                            </div>
+                                            <div class="absolute -inset-1 bg-red-400 rounded-full opacity-20 animate-ping"
+                                                style="animation-delay: 0.6s;"></div>
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-2xl font-eczar text-gray-800 max-[450px]:text-xl relative z-10 group-hover:text-gray-900 transition-colors duration-300">
+                                        <span
+                                            class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-semibold">
+                                            दौरे आने की तीव्रता कम करना
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <!-- Benefit 5 -->
+                                <div
+                                    class="group flex items-center gap-6 p-8 border-b border-gray-100 max-[450px]:p-5 max-[450px]:gap-4 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 transition-all duration-500 transform hover:scale-[1.02] relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-yellow-100 to-orange-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    </div>
+                                    <div class="flex-shrink-0 relative z-10">
+                                        <div class="relative">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"
+                                                style="animation: pulse 2s infinite; animation-delay: 0.8s;">
+                                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                                                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                                                </svg>
+                                            </div>
+                                            <div class="absolute -inset-1 bg-orange-400 rounded-full opacity-20 animate-ping"
+                                                style="animation-delay: 0.8s;"></div>
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-2xl font-eczar text-gray-800 max-[450px]:text-xl relative z-10 group-hover:text-gray-900 transition-colors duration-300">
+                                        <span
+                                            class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-semibold">
+                                            कांपना + घबराहट + चिंता में राहत
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <!-- Benefit 6 -->
+                                <div
+                                    class="group flex items-center gap-6 p-8 border-b border-gray-100 max-[450px]:p-5 max-[450px]:gap-4 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-cyan-50 transition-all duration-500 transform hover:scale-[1.02] relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-indigo-100 to-cyan-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    </div>
+                                    <div class="flex-shrink-0 relative z-10">
+                                        <div class="relative">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-cyan-500 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"
+                                                style="animation: pulse 2s infinite; animation-delay: 1s;">
+                                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                    <path
+                                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 10.414l-4.95-4.95a1 1 0 010-1.414z" />
+                                                </svg>
+                                            </div>
+                                            <div class="absolute -inset-1 bg-cyan-400 rounded-full opacity-20 animate-ping"
+                                                style="animation-delay: 1s;"></div>
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-2xl font-eczar text-gray-800 max-[450px]:text-xl relative z-10 group-hover:text-gray-900 transition-colors duration-300">
+                                        <span
+                                            class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-semibold">
+                                            Stroke के बाद होने वाले छोटे दौरा में आयुर्वेदिक सहायता
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <!-- Benefit 7 -->
+                                <div
+                                    class="group flex items-center gap-6 p-8 max-[450px]:p-5 max-[450px]:gap-4 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50 transition-all duration-500 transform hover:scale-[1.02] relative overflow-hidden rounded-b-3xl">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-emerald-100 to-teal-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl">
+                                    </div>
+                                    <div class="flex-shrink-0 relative z-10">
+                                        <div class="relative">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"
+                                                style="animation: pulse 2s infinite; animation-delay: 1.2s;">
+                                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            </div>
+                                            <div class="absolute -inset-1 bg-teal-400 rounded-full opacity-20 animate-ping"
+                                                style="animation-delay: 1.2s;"></div>
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-2xl font-eczar text-gray-800 max-[450px]:text-xl relative z-10 group-hover:text-gray-900 transition-colors duration-300">
+                                        <span
+                                            class="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent font-semibold">
+                                            दीर्घकालिक तंत्रिका सुरक्षा
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ingredients Section -->
+            <section class="bg-brand-primary py-10 px-4 max-[450px]:py-8 max-[450px]:px-3 text-white">
+                <!-- Key Ingredients -->
+                <div>
+                    <h2 class="text-4xl font-eczer font-bold text-center mb-6 max-[450px]:text-3xl">
+                        Key Ingredients
+                    </h2>
+                    <h3
+                        class="text-2xl font-eczer font-semibold text-center mb-10 max-[450px]:text-xl max-[450px]:mb-8 text-brand-secondary">
+                        "इन 8 जड़ी-बूटियों से मिलता है दिमाग को प्राकृतिक सहारा"
+                    </h3>
+
+                    <!-- Ingredients Grid -->
+                    <div class="grid grid-cols-1 gap-12 max-[450px]:gap-8">
+                        <!-- Ingredient 1 - ब्राह्मी -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/1.png" alt="ब्राह्मी"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        ब्राह्मी</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">दिमाग को ठंडक</span> देती है, जिससे अचानक आने
+                                        वाले दौरे कम होते हैं।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ingredient 2 - जटामांसी -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/2.png" alt="जटामांसी"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        जटामांसी</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">दिमाग की तेज़ हलचल को शांत</span> करती है,
+                                        ताकि झटके हल्के पड़ें।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ingredient 3 - अश्वगंधा -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/3.png" alt="अश्वगंधा"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        अश्वगंधा</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">तनाव और घबराहट कम</span> करती है, जिससे दिमाग
+                                        गड़बड़ सिग्नल नहीं भेजता।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ingredient 4 - शंखपुष्पी -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/4.png" alt="शंखपुष्पी"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        शंखपुष्पी</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">दिमाग के सिग्नल सही चलने</span> में मदद करती
+                                        है, जिससे दौरे जल्दी-जल्दी नहीं आते।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ingredient 5 - वचा -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/5.png" alt="वचा"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        वचा</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">दिमाग की गर्मी और चिड़चिड़ाहट कम</span> करती
+                                        है, जिससे फिट्स का खतरा घटता है।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ingredient 6 - निर्गुंडी -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/6.png" alt="निर्गुंडी"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        निर्गुंडी</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">नसों को मजबूत</span> करती है, ताकि कांपना और
+                                        अचानक शरीर ढीला पड़ना कम हो जाए।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ingredient 7 - मुलेठी -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/7.png" alt="मुलेठी"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        मुलेठी</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">शरीर को अंदर से शांत</span> रखती है, जिससे
+                                        दौरे के समय शरीर ज्यादा नहीं बिगड़ता।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ingredient 8 - कौंच बीज -->
+                        <div
+                            class="bg-white bg-opacity-15 rounded-2xl p-12 max-[450px]:p-8 backdrop-blur-sm border border-white border-opacity-20 shadow-lg hover:bg-opacity-20 transition-all duration-300">
+                            <div class="flex items-start gap-8 max-[450px]:gap-6">
+                                <img src="./image/8.png" alt="कौंच बीज"
+                                    class="w-40 h-40 rounded-full object-cover border-3 border-brand-secondary max-[450px]:w-32 max-[450px]:h-32 shadow-lg">
+                                <div class="flex-1">
+                                    <h4
+                                        class="text-3xl font-eczer font-bold mb-4 max-[450px]:text-2xl text-brand-secondary">
+                                        कौंच बीज</h4>
+                                    <p class="font-eczer leading-relaxed text-2xl max-[450px]:text-xl">
+                                        <span class="text-black font-bold">दिमाग और शरीर के तालमेल को ठीक</span> करता
+                                        है, जिससे दौरे आने की संभावना कम हो जाती है।
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="mt-12 max-[450px]:mt-8 text-center">
+                        <p class="text-4xl font-eczer font-semibold text-white leading-relaxed max-[450px]:text-3xl">
+                            इन जड़ी-बूटियों का संयोजन दिमाग में <span class="text-brand-secondary font-bold">
+                                electrical balance, calmness </span> और <span
+                                class="text-brand-secondary font-bold">neuro protection</span> देने में सहायक है।
+                        </p>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <!-- Certificate , Guarantee Image Section -->
+            <section class="relative w-full bg-brand-primary h-auto ">
+                <img src="./image/Guarantee.png" alt="Mirgi Mukti Hero" class="w-auto h-auto object-cover " />
+            </section>
+
+            <!-- How To Use Section - Visual Clock Concept -->
+            <section class="bg-white py-6 px-4 max-[450px]:py-4 max-[450px]:px-3">
+                <div class="main-container">
+                    <!-- Section Heading -->
+                    <h2
+                        class="text-4xl font-eczer font-extrabold text-center mb-4 max-[450px]:text-4xl text-brand-primary">
+                        How To Use <br> "Mirgi Mukti"
+                    </h2>
+                    <h3
+                        class="text-2xl font-eczer font-semibold text-center mb-12 max-[450px]:text-xl max-[450px]:mb-8 text-black">
+                        कैसे और कब लें?
+                    </h3>
+
+                    <!-- Visual Clock Layout -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center justify-center gap-6 mb-10 max-[450px]:flex-row max-[450px]:gap-4 max-[450px]:mb-8">
+
+                        <!-- Morning Section -->
+                        <div
+                            class="flex flex-col items-center text-center bg-brand-secondary bg-opacity-20 rounded-2xl p-6 max-[450px]:p-6 border-2 border-brand-primary">
+                            <!-- Sun Icon with Clock -->
+                            <div class="relative mb-4 max-[450px]:mb-4">
+                                <div class="text-5xl max-[450px]:text-4xl mb-2">☀️</div>
+                                <div
+                                    class="relative w-20 h-20 max-[450px]:w-20 max-[450px]:h-20 border-3 border-brand-primary rounded-full bg-white mx-auto">
+                                    <!-- Clock Face -->
+                                    <div class="absolute inset-2 border-2 border-gray-300 rounded-full bg-white">
+                                        <!-- Clock Numbers -->
+                                        <div
+                                            class="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">
+                                            12</div>
+                                        <div
+                                            class="absolute top-1/2 right-1 transform -translate-y-1/2 text-xs font-bold">
+                                            3</div>
+                                        <div
+                                            class="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">
+                                            6</div>
+                                        <div
+                                            class="absolute top-1/2 left-1 transform -translate-y-1/2 text-xs font-bold">
+                                            9</div>
+
+                                        <!-- Clock Hands pointing to 8-10 AM -->
+                                        <div class="absolute top-1/2 left-1/2 w-1 bg-brand-primary transform -translate-x-1/2 origin-bottom rotate-[-60deg]"
+                                            style="height: 35%; margin-top: -35%;"></div>
+                                        <div class="absolute top-1/2 left-1/2 w-0.5 bg-black transform -translate-x-1/2 origin-bottom rotate-[90deg]"
+                                            style="height: 25%; margin-top: -25%;"></div>
+                                        <!-- Center dot -->
+                                        <div
+                                            class="absolute top-1/2 left-1/2 w-2 h-2 bg-brand-primary rounded-full transform -translate-x-1/2 -translate-y-1/2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-lg font-eczer font-bold text-brand-primary mt-2 max-[450px]:text-lg">
+                                    8-10 AM</div>
+                            </div>
+                            <h4 class="text-xl font-eczer font-bold text-black mb-1 max-[450px]:text-xl">सुबह</h4>
+                            <p class="text-xl font-eczer text-black max-[450px]:text-xl">के नाश्ते के बाद</p>
+                        </div>
+
+                        <!-- Medicine Bottle (Center) -->
+                        <div class="flex flex-col items-center text-center lg:mx-6 max-[450px]:mx-4">
+                            <div class="relative">
+                                <!-- Glowing effect -->
+                                <div
+                                    class="absolute inset-0 bg-brand-primary rounded-full blur-lg opacity-30 animate-pulse scale-110">
+                                </div>
+                                <div class="relative text-5xl max-[450px]:text-4xl mb-3 filter drop-shadow-lg">💊</div>
+                            </div>
+                            <h4 class="text-3xl font-eczer font-bold text-brand-primary mb-1 max-[450px]:text-2xl">Mirgi
+                                Mukti</h4>
+                            <p class="text-2xl font-eczer font-semibold text-black max-[450px]:text-xl">दिन में 2 बार
+                            </p>
+                        </div>
+
+                        <!-- Night Section -->
+                        <div
+                            class="flex flex-col items-center text-center bg-brand-secondary bg-opacity-20 rounded-2xl p-6 max-[450px]:p-6 border-2 border-brand-primary">
+                            <!-- Moon Icon with Clock -->
+                            <div class="relative mb-4 max-[450px]:mb-4">
+                                <div class="text-5xl max-[450px]:text-4xl mb-2">🌙</div>
+                                <div
+                                    class="relative w-20 h-20 max-[450px]:w-20 max-[450px]:h-20 border-3 border-brand-primary rounded-full bg-white mx-auto">
+                                    <!-- Clock Face -->
+                                    <div class="absolute inset-2 border-2 border-gray-300 rounded-full bg-white">
+                                        <!-- Clock Numbers -->
+                                        <div
+                                            class="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">
+                                            12</div>
+                                        <div
+                                            class="absolute top-1/2 right-1 transform -translate-y-1/2 text-xs font-bold">
+                                            3</div>
+                                        <div
+                                            class="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">
+                                            6</div>
+                                        <div
+                                            class="absolute top-1/2 left-1 transform -translate-y-1/2 text-xs font-bold">
+                                            9</div>
+
+                                        <!-- Clock Hands pointing to 8-10 PM -->
+                                        <div class="absolute top-1/2 left-1/2 w-1 bg-brand-primary transform -translate-x-1/2 origin-bottom rotate-[60deg]"
+                                            style="height: 35%; margin-top: -35%;"></div>
+                                        <div class="absolute top-1/2 left-1/2 w-0.5 bg-black transform -translate-x-1/2 origin-bottom rotate-[270deg]"
+                                            style="height: 25%; margin-top: -25%;"></div>
+                                        <!-- Center dot -->
+                                        <div
+                                            class="absolute top-1/2 left-1/2 w-2 h-2 bg-brand-primary rounded-full transform -translate-x-1/2 -translate-y-1/2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-lg font-eczer font-bold text-brand-primary mt-2 max-[450px]:text-lg">
+                                    8-10 PM</div>
+                            </div>
+                            <h4 class="text-xl font-eczer font-bold text-black mb-1 max-[450px]:text-xl">रात</h4>
+                            <p class="text-xl font-eczer text-black max-[450px]:text-xl">के खाने के बाद</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-2xl font-eczer font-bold text-black max-[450px]:text-xl">
+                            <span class="text-brand-primary">Consistency mandatory</span> है।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Happy End Section -->
+            <section class="bg-brand-primary py-6 border-b-2 border-gray-200  max-[450px]:py-4 ">
+                <div class="main-container">
+                    <!-- Happy End Image -->
+                    <div class="text-center mb-10 max-[450px]:mb-8">
+                        <img src="./image/happyEnd.png" alt="Happy End" class="w-auto h-auto object-cover mx-auto" />
+                    </div>
+
+                    <!-- Inspirational Text -->
+                    <div class="text-center mb-10 max-[450px]:mb-8">
+                        <p class="text-4xl font-eczer font-bold text-white leading-relaxed max-[450px]:text-3xl">
+                            मैंने अपनी जिंदगी को बेहतर बनाया, अब आपकी बारी है।
+                        </p>
+                    </div>
+
+                    <!-- Points with Vector Icons -->
+                    <div class="space-y-6 max-[450px]:space-y-4 mb-10 max-[450px]:mb-8">
+                        <!-- Point 1 -->
+                        <div class="flex items-center justify-start gap-4 max-[450px]:gap-3">
+                            <div class="flex-shrink-0">
+                                <svg class="w-8 h-8 text-brand-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="text-3xl font-eczer font-semibold text-white max-[450px]:text-2xl">
+                                Mirgi Mukti — एक नया भरोसा…
+                            </p>
+                        </div>
+
+                        <!-- Point 2 -->
+                        <div class="flex items-center justify-start gap-4 max-[450px]:gap-3">
+                            <div class="flex-shrink-0">
+                                <svg class="w-8 h-8 text-brand-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="text-3xl font-eczer font-semibold text-white max-[450px]:text-2xl">
+                                एक नई शुरुआत…
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Final Message -->
+                    <div class="text-center">
+                        <p
+                            class="text-3xl font-eczer font-bold text-brand-secondary leading-relaxed max-[450px]:text-2xl">
+                            और एक ऐसा कदम जो आपको फिर से सुरक्षित, सामान्य और खुशहाल जीवन की तरफ ले जाए।
+                        </p>
+                    </div>
+                </div>
+            </section>
 
             <!-- Contact Section -->
             <section class="px-4 py-4 bg-brand-primary text-white max-[450px]:py-6 max-[450px]:px-3" id="contact">
@@ -86,23 +984,343 @@
                             class="w-full p-3 border-none rounded text-lg text-brand-primary placeholder-gray-500 font-tiro max-[450px]:p-2 max-[450px]:text-base bg-brand-light">
                     </div>
                     <button type="submit"
-                        class="bg-brand-secondary text-brand-primary border-none py-4 px-8 rounded text-2xl font-tiro font-bold cursor-pointer w-full mt-4 transition-all duration-300 hover:bg-opacity-90 max-[450px]:py-3 max-[450px]:px-4 max-[450px]:text-lg max-[450px]:mt-3">
+                        class="bg-brand-secondary text-brand-accent font-bold border-none py-4 px-8 rounded text-2xl font-tiro font-bold cursor-pointer w-full mt-4 transition-all duration-300 hover:bg-opacity-90 max-[450px]:py-3 max-[450px]:px-4 max-[450px]:text-xl max-[450px]:mt-3 pulse-button glow-effect"
+                        onmouseenter="this.classList.add('shake')" onmouseleave="this.classList.remove('shake')">
                         <span>✨</span>
                         अभी ऑर्डर करें
                         <span>✨</span>
                     </button>
                 </form>
             </section>
+
+            <!-- Google Reviews Section -->
+            <section class="bg-brand-light py-8 px-4 max-[450px]:py-6 max-[450px]:px-3">
+                <!-- Section Header -->
+                <div class="text-center mb-8 max-[450px]:mb-6">
+                    <h2 class="text-3xl font-extrabold font-eczer text-brand-primary mb-2 max-[450px]:text-3xl">
+                        Real Customer Results (Social Proof)
+                    </h2>
+                    <p class="text-2xl font-eczer font-medium text-gray-700 mb-4 max-[450px]:text-xl">
+                        "राहत पाए हुए लोगों के असली अनुभव"
+                    </p>
+
+                    <!-- Google Reviews Header -->
+                    <div class="flex items-center justify-center gap-3 mb-6 max-[450px]:mb-4">
+                        <!-- Google Icon -->
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white rounded-full p-2 shadow-lg">
+                                <svg class="w-10 h-10" viewBox="0 0 24 24">
+                                    <path fill="#4285F4"
+                                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                    <path fill="#34A853"
+                                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                    <path fill="#FBBC05"
+                                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                    <path fill="#EA4335"
+                                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                </svg>
+                            </div>
+                            <span class="font-eczer font-bold text-lg text-gray-800">Google Reviews</span>
+                        </div>
+
+                        <!-- Verified Badge -->
+                        <div class="flex items-center gap-1 bg-brand-primary text-white px-3 py-1 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="font-eczer font-medium text-sm">Verified</span>
+                        </div>
+                    </div>
+
+                    <!-- Rating Display -->
+                    <div class="flex items-center justify-center gap-2 mb-6">
+                        <div class="flex items-center gap-1">
+                            <span class="text-2xl">⭐</span>
+                            <span class="font-eczer font-bold text-xl text-brand-primary">4.9</span>
+                        </div>
+                        <span class="font-eczer font-medium text-gray-600">(697 Reviews)</span>
+                    </div>
+                </div>
+
+                <!-- Review Cards -->
+                <div class="space-y-6 max-[450px]:space-y-4">
+                    <!-- Review 1 -->
+                    <div class="review-card p-6 rounded-xl shadow-md max-[450px]:p-4">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <!-- Customer Image -->
+                            <div class="relative flex-shrink-0">
+                                <img src="./image/customer2.png" alt="सोनू देवी"
+                                    class="w-16 h-16 rounded-full object-cover border-3 border-brand-primary max-[450px]:w-14 max-[450px]:h-14">
+                            </div>
+                            <!-- Customer Info -->
+                            <div class="flex-1">
+                                <h3 class="font-eczer font-bold text-2xl text-brand-primary mb-1 max-[450px]:text-xl">
+                                    सोनू देवी
+                                </h3>
+                                <p class="font-eczer font-medium text-lg text-gray-600">
+                                    34 वर्ष, बिहार
+                                </p>
+                            </div>
+                            <!-- Star Rating -->
+                            <div class="flex-shrink-0">
+                                <div class="bg-white rounded-full px-3 py-2 shadow-md border border-gray-100">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-content font-eczer text-gray-800 leading-relaxed">
+                            "मेरी बहन को हर 10–12 दिन में फिट्स आते थे। Mirgi Mukti शुरू करने के बाद 2 महीने में सिर्फ 1
+                            हल्का दौरा आया। पहले जैसा डर नहीं लगता। काफी सुधार है।"
+                        </p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="review-card p-6 rounded-xl shadow-md max-[450px]:p-4">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <!-- Customer Image -->
+                            <div class="relative flex-shrink-0">
+                                <img src="./image/customer8.jpg" alt="राकेश कुमार"
+                                    class="w-16 h-16 rounded-full object-cover border-3 border-brand-primary max-[450px]:w-14 max-[450px]:h-14">
+                            </div>
+                            <!-- Customer Info -->
+                            <div class="flex-1">
+                                <h3 class="font-eczer font-bold text-2xl text-brand-primary mb-1 max-[450px]:text-xl">
+                                    राकेश कुमार
+                                </h3>
+                                <p class="font-eczer font-medium text-lg text-gray-600">
+                                    41 वर्ष, राजस्थान
+                                </p>
+                            </div>
+                            <!-- Star Rating -->
+                            <div class="flex-shrink-0">
+                                <div class="bg-white rounded-full px-3 py-2 shadow-md border border-gray-100">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400" viewBox="0 0 20 20">
+                                            <defs>
+                                                <linearGradient id="half-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="50%" style="stop-color:#FBBF24;stop-opacity:1" />
+                                                    <stop offset="50%" style="stop-color:#E5E7EB;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <path fill="url(#half-fill)"
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-content font-eczer text-gray-800 leading-relaxed">
+                            "Mirgi Mukti से अचानक बेहोशी और दिमाग ब्लैंक होने की समस्या लगभग 60% कम हो गई है। हाथ-पैर का
+                            कांपना भी अब बहुत कम हो चुका है।"
+                        </p>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card p-6 rounded-xl shadow-md max-[450px]:p-4">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <!-- Customer Image -->
+                            <div class="relative flex-shrink-0">
+                                <img src="./image/customer6.jpg" alt="सरोज साहू"
+                                    class="w-16 h-16 rounded-full object-cover border-3 border-brand-primary max-[450px]:w-14 max-[450px]:h-14">
+                            </div>
+                            <!-- Customer Info -->
+                            <div class="flex-1">
+                                <h3 class="font-eczer font-bold text-2xl text-brand-primary mb-1 max-[450px]:text-xl">
+                                    सरोज साहू
+                                </h3>
+                                <p class="font-eczer font-medium text-lg text-gray-600">
+                                    52 वर्ष, मध्य प्रदेश
+                                </p>
+                            </div>
+                            <!-- Star Rating -->
+                            <div class="flex-shrink-0">
+                                <div class="bg-white rounded-full px-3 py-2 shadow-md border border-gray-100">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-content font-eczer text-gray-800 leading-relaxed">
+                            "Stroke के बाद seizures बढ़ गए थे। Mirgi Mukti ने काफी सहारा दिया। अब झटके बहुत rare हैं और
+                            हल्के भी। घरवाले भी काफी सकून में हैं।"
+                        </p>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="review-card p-6 rounded-xl shadow-md max-[450px]:p-4">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <!-- Customer Image -->
+                            <div class="relative flex-shrink-0">
+                                <img src="./image/customer5.jpeg" alt="कविता यादव"
+                                    class="w-16 h-16 rounded-full object-cover border-3 border-brand-primary max-[450px]:w-14 max-[450px]:h-14">
+                            </div>
+                            <!-- Customer Info -->
+                            <div class="flex-1">
+                                <h3 class="font-eczer font-bold text-2xl text-brand-primary mb-1 max-[450px]:text-xl">
+                                    कविता यादव
+                                </h3>
+                                <p class="font-eczer font-medium text-lg text-gray-600">
+                                    29 वर्ष, उत्तर प्रदेश
+                                </p>
+                            </div>
+                            <!-- Star Rating -->
+                            <div class="flex-shrink-0">
+                                <div class="bg-white rounded-full px-3 py-2 shadow-md border border-gray-100">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400" viewBox="0 0 20 20">
+                                            <defs>
+                                                <linearGradient id="half-fill-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="50%" style="stop-color:#FBBF24;stop-opacity:1" />
+                                                    <stop offset="50%" style="stop-color:#E5E7EB;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <path fill="url(#half-fill-2)"
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-content font-eczer text-gray-800 leading-relaxed">
+                            "मेरे भाई को रोज़ हल्के-हल्के झटके आते थे। Mirgi Mukti लेने के बाद पिछले 1 महीने से एक भी
+                            बड़ा दौरा नहीं आया। शरीर भी अब पहले जैसा कमजोर नहीं पड़ता।"
+                        </p>
+                    </div>
+
+                    <!-- Review 5 -->
+                    <div class="review-card p-6 rounded-xl shadow-md max-[450px]:p-4">
+                        <div class="flex items-start gap-4 mb-4 max-[450px]:gap-3">
+                            <!-- Customer Image -->
+                            <div class="relative flex-shrink-0">
+                                <img src="./image/customer4.jpeg" alt="इरफ़ान अली"
+                                    class="w-16 h-16 rounded-full object-cover border-3 border-brand-primary max-[450px]:w-14 max-[450px]:h-14">
+                            </div>
+                            <!-- Customer Info -->
+                            <div class="flex-1">
+                                <h3 class="font-eczer font-bold text-2xl text-brand-primary mb-1 max-[450px]:text-xl">
+                                    इरफ़ान अली
+                                </h3>
+                                <p class="font-eczer font-medium text-lg text-gray-600">
+                                    45 वर्ष, महाराष्ट्र
+                                </p>
+                            </div>
+                            <!-- Star Rating -->
+                            <div class="flex-shrink-0">
+                                <div class="bg-white rounded-full px-3 py-2 shadow-md border border-gray-100">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-content font-eczer text-gray-800 leading-relaxed">
+                            "मुझे अक्सर अचानक चक्कर आकर गिर जाना होता था। डॉक्टर ने इसे seizure बताया था। Mirgi Mukti
+                            शुरू करने के बाद ये गिरने वाली दिक्कत लगभग बंद हो गई है। अब काफी कंट्रोल में हूँ।"
+                        </p>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="bg-brand-primary text-white py-4 px-4 text-center max-[450px]:py-4 max-[450px]:px-3">
-            <div class="text-sm text-gray-300 mt-4 font-tiro max-[450px]:text-xs max-[450px]:mt-2">
-                <p><strong class="font-tiro font-semibold">Disclaimer :-</strong> Results may vary by
-                    individual.
-                    Consult
-                    with a healthcare professional for personalized hearing assessment. This device is not
-                    intended to
-                    diagnose, treat, cure, or prevent any medical condition.</p>
+            <div class="text-sm text-white mt-4 font-tiro max-[450px]:text-xs max-[450px]:mt-2">
+                <p><strong class="font-tiro font-semibold">⚠️ Disclaimer :-</strong>This product is not intended to
+                    diagnose, treat, cure, or prevent any disease. Results may vary from person to person. Always
+                    consult with a qualified healthcare professional before starting any new supplement.</p>
             </div>
         </footer>
         <!-- Thank You Modal -->
@@ -123,23 +1341,27 @@
 
         <!-- Fixed CTA Form at Bottom -->
         <div id="fixedCTA"
-            class="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-brand-primary to-purple-700 shadow-2xl max-w-[450px] w-full border-t-4 border-brand-secondary">
-            <div class="px-3 py-3 w-full">
-                <div class="flex items-center justify-between gap-2">
+            class="fixed bottom-0 left-0 right-0 z-50 bg-brand-primary shadow-2xl w-full border-t-4 border-brand-secondary">
+            <div class="px-4 py-4 w-full max-[450px]:px-3 max-[450px]:py-3 main-container">
+                <div class="flex items-center justify-between gap-4 max-[450px]:gap-3">
                     <!-- Offer Text -->
                     <div class="flex-1 text-white">
-                        <div class="text-sm font-tiro text-brand-secondary font-extrabold mb-1 max-[450px]:text-sm">
-                            🔥 "Safe Body – Safe Life" Offer
+                        <div class="text-lg font-tiro text-brand-secondary font-extrabold mb-1 max-[450px]:text-base">
+                            🎉 10% OFF - अभी ऑर्डर करें — सुरक्षित जीवन की शुरुआत करें
                         </div>
-                        <div class="text-xs opacity-90 font-tiro font-bold max-[450px]:text-xs">
-                            स्टॉक खत्म होने से पहले प्राप्त करें
+                        <div class="text-base opacity-90 font-tiro font-bold mb-1 max-[450px]:text-sm">
+                            मौका हाथ से जाने मत दें!
+                        </div>
+                        <div class="text-base opacity-85 font-tiro font-medium max-[450px]:text-sm">
+                            📦 COD Available | Home Delivery
                         </div>
                     </div>
 
                     <!-- Order Now Button -->
                     <button id="ctaButton" onclick="scrollToContact()"
-                        class="cta-button bg-brand-secondary text-brand-primary px-4 py-2 rounded-xl font-tiro font-extrabold text-sm transition-all duration-300 shadow-lg hover:scale-105 max-[450px]:px-3 max-[450px]:py-1 max-[450px]:text-sm pulse-animation">
-                        🛒 Buy Now
+                        class="cta-button bg-brand-secondary text-brand-primary px-8 py-5 rounded-xl font-tiro font-extrabold text-lg transition-all duration-300 shadow-lg hover:scale-105 max-[450px]:px-5 max-[450px]:py-4 max-[450px]:text-base pulse-animation glow-effect"
+                        onmouseenter="this.classList.add('shake')" onmouseleave="this.classList.remove('shake')">
+                        🛒 Mirgi Mukti मंगवाएँ
                     </button>
                 </div>
             </div>
@@ -148,141 +1370,18 @@
     <script>
         function showThankYou() {
             document.getElementById('thankYouModal').style.display = 'flex';
-
             // Auto close after 2 seconds
             setTimeout(() => {
                 closeModal();
             }, 2000);
         }
-
         function closeModal() {
             document.getElementById('thankYouModal').style.display = 'none';
             document.getElementById('contactForm').reset();
         }
-
         function scrollToContact() {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
-
-        function toggleFAQ(faqNumber) {
-            const faqItem = document.querySelectorAll('.faq-item')[faqNumber - 1];
-            const answer = faqItem.querySelector('.faq-answer');
-            const icon = faqItem.querySelector('.faq-icon');
-            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-
-            // Close all other FAQs
-            document.querySelectorAll('.faq-answer').forEach((item, index) => {
-                if (index !== faqNumber - 1) {
-                    item.style.maxHeight = '0px';
-                    document.querySelectorAll('.faq-icon')[index].textContent = '+';
-                    document.querySelectorAll('.faq-icon')[index].style.transform = 'rotate(0deg)';
-                }
-            });
-
-            // Toggle current FAQ
-            if (isOpen) {
-                answer.style.maxHeight = '0px';
-                icon.textContent = '+';
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                icon.textContent = '−';
-                icon.style.transform = 'rotate(180deg)';
-
-                // Smooth scroll to make sure the opened FAQ is visible
-                setTimeout(() => {
-                    faqItem.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest'
-                    });
-                }, 200);
-            }
-        }
-
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-
-            if (name && phone) {
-                showThankYou();
-            }
-        });
-
-        // Close modal when clicking outside
-        window.onclick = function (event) {
-            const modal = document.getElementById('thankYouModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Scroll Animation for Success Stories
-        function initScrollAnimations() {
-            const animateElements = document.querySelectorAll('.scroll-animate');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const delay = entry.target.getAttribute('data-delay') || 0;
-                        setTimeout(() => {
-                            entry.target.classList.add('animate');
-                        }, parseFloat(delay) * 1000);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.2,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            animateElements.forEach((element) => {
-                observer.observe(element);
-            });
-        }
-
-        // Initialize scroll animations when page loads
-        document.addEventListener('DOMContentLoaded', initScrollAnimations);
-
-        // Fixed CTA Button Animation
-        function startCTAAnimation() {
-            const ctaButton = document.getElementById('ctaButton');
-            if (ctaButton) {
-                // Add animation classes
-                ctaButton.classList.add('cta-animate', 'cta-glow');
-
-                // Remove animation after 2 seconds
-                setTimeout(() => {
-                    ctaButton.classList.remove('cta-animate', 'cta-glow');
-                }, 2000);
-            }
-        }
-
-        // Start CTA animation every 5 seconds
-        setInterval(startCTAAnimation, 5000);
-
-        // Start the first animation after 2 seconds of page load
-        setTimeout(startCTAAnimation, 2000);
-
-        // Enhanced Flash Animation for Solution CTA Button
-        function startSolutionCTAFlash() {
-            const solutionButton = document.getElementById('solutionCTAButton');
-            if (solutionButton) {
-                // Add extra intensity flash class
-                solutionButton.classList.add('super-flash');
-
-                // Remove extra flash after animation cycle
-                setTimeout(() => {
-                    solutionButton.classList.remove('super-flash');
-                }, 3000);
-            }
-        }
-
-        // Start solution button flash animation every 8 seconds
-        setInterval(startSolutionCTAFlash, 8000);
-
-        // Start the first solution flash animation after 4 seconds of page load
-        setTimeout(startSolutionCTAFlash, 4000);
     </script>
 
 </body>
