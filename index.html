@@ -6,29 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirgi Mukti</title>
     <link href="https://fonts.googleapis.com/css2?family=eczer:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-primary': '#1f7f12',
-                        'brand-secondary': '#FFB400',
-                        'brand-light': '#f7f7ff',
-                        'brand-muted': '#e8c9af',
-                        "brand-accent": '#ffffff',
-                    },
-                    maxWidth: {
-                        'landing': '450px',
-                    },
-                    fontFamily: {
-                        'eczer': ['eczer', 'serif'],
-                        'eczer': ['Eczer', 'sans-serif'],
-                    }
-                }
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            --brand-primary: #1f7f12;
+            --brand-secondary: #FFB400;
+            --brand-light: #f7f7ff;
+            --brand-muted: #e8c9af;
+            --brand-accent: #ffffff;
+        }
+        
+        .bg-brand-primary { background-color: var(--brand-primary); }
+        .bg-brand-secondary { background-color: var(--brand-secondary); }
+        .bg-brand-light { background-color: var(--brand-light); }
+        .bg-brand-muted { background-color: var(--brand-muted); }
+        .bg-brand-accent { background-color: var(--brand-accent); }
+        
+        .text-brand-primary { color: var(--brand-primary); }
+        .text-brand-secondary { color: var(--brand-secondary); }
+        .text-brand-light { color: var(--brand-light); }
+        .text-brand-muted { color: var(--brand-muted); }
+        .text-brand-accent { color: var(--brand-accent); }
+        
+        .border-brand-primary { border-color: var(--brand-primary); }
+        .border-brand-secondary { border-color: var(--brand-secondary); }
+        .border-brand-light { border-color: var(--brand-light); }
+        .border-brand-muted { border-color: var(--brand-muted); }
+        .border-brand-accent { border-color: var(--brand-accent); }
+        
+        .font-eczer { font-family: 'eczer', serif; }
+        .font-eczar { font-family: 'Eczar', sans-serif; }
+        .font-tiro { font-family: 'Tiro Devanagari Hindi', serif; }
+        .font-halant { font-family: 'Halant', serif; }
+        
+        .main-container { max-width: 1200px; margin: 0 auto; }
+        
+        /* Custom animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    </script>
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+        
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8,0,1,1);
+            }
+            50% {
+                transform: none;
+                animation-timing-function: cubic-bezier(0,0,0.2,1);
+            }
+        }
+        
+        .animate-slideDown { animation: slideDown 0.6s ease-out; }
+        .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        .animate-ping { animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
+        .animate-bounce { animation: bounce 1s infinite; }
+    </style>
     <style>
         body {
             scroll-behavior: smooth;
@@ -289,7 +345,7 @@
                                 style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
                                 <p class="font-eczer font-bold text-center leading-tight"
                                     style="font-size: 1.5rem; line-height: 1.2;">
-                                    <strong>Electrical imbalance के कारण body control खो देना</strong>
+                                    <strong>मस्तिष्क असंतुलन के कारण शरीर पर नियंत्रण खो देना</strong>
                                 </p>
                             </div>
                         </div>
@@ -302,7 +358,7 @@
                                 style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
                                 <p class="font-eczer font-bold text-center leading-tight"
                                     style="font-size: 1.5rem; line-height: 1.2;">
-                                    <strong>Stroke के बाद seizures का बढ़ जाना</strong>
+                                    <strong>Stroke के बाद Seizures का बढ़ जाना</strong>
                                 </p>
                             </div>
                         </div>
@@ -315,7 +371,7 @@
                                 style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
                                 <p class="font-eczer font-bold text-center leading-tight"
                                     style="font-size: 1.5rem; line-height: 1.2;">
-                                    <strong>हाथ-पैर कांपना, डर, panic</strong>
+                                    <strong>हाथ-पैर कांपना , डर और घबड़ाहट</strong>
                                 </p>
                             </div>
                         </div>
@@ -328,7 +384,7 @@
                                 style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
                                 <p class="font-eczer font-bold text-center leading-tight"
                                     style="font-size: 1.5rem; line-height: 1.2;">
-                                    <strong>किसी छोटे से trigger से भी बड़ा दौरा बन जाना</strong>
+                                    <strong>किसी छोटे trigger से भी बड़ा दौरा बन जाना</strong>
                                 </p>
                             </div>
                         </div>
@@ -341,7 +397,7 @@
                                 style="clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%); width: calc(100% - 48px); height: 80px; padding: 12px 20px; display: flex; align-items: center; justify-content: center;">
                                 <p class="font-eczer font-bold text-center leading-tight"
                                     style="font-size: 1.5rem; line-height: 1.2;">
-                                    <strong>सड़कों, सीढ़ियों या भीड़ में अचानक दौरे से गिरने का डर</strong>
+                                    <strong>भीड़ और सीढ़ियों में गिरने का भय</strong>
                                 </p>
                             </div>
                         </div>
