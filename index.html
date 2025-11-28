@@ -1335,20 +1335,16 @@
         <div id="fixedCTA"
             class="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 bg-brand-primary shadow-2xl w-[450px] max-w-full border-t-4 border-brand-secondary">
            <div class="px-2 py-2 w-full max-[450px]:px-4 max-[450px]:py-2">
-                <!-- Countdown Timer Heading -->
-                <div class="text-center mb-2">
-                    <!-- <div class="text-white text-base font-tiro font-bold mb-1">
-                        ⏰ आज का ऑफर समाप्त होने में:
-                    </div> -->
-                    <div id="countdown" class="text-white text-lg max-[450px]:text-lg font-extrabold font-eczar">
-                       00:00:00
-                    </div>
-                </div>
-
                 <!-- Main Content: Left Points + Right Offer/Button -->
                 <div class="flex items-center gap-6">
-                    <!-- Left Side: Three Promotional Points with Bullets -->
+                    <!-- Bouncing 10% OFF Text -->
                     <div class="flex-1">
+                        <div class="inline-block animate-bounce">
+                            <span class="text-lg  font-extrabold text-white bg-red-800 px-4 py-1 rounded-full shadow-lg font-eczar">
+                                🎉 10% OFF
+                            </span>
+                        </div>
+                        <!-- Left Side: Three Promotional Points with Bullets -->
                         <ul class="text-white text-sm font-eczar font-bold space-y-1">
                             <li class="flex items-center gap-2">
                                 <span class="text-brand-secondary text-sm">•</span>
@@ -1363,16 +1359,19 @@
 
                     <!-- Right Side: 10% OFF + Button -->
                     <div class="flex flex-col items-center gap-2">
-                        <!-- Bouncing 10% OFF Text -->
-                        <div class="inline-block animate-bounce">
-                            <span class="text-lg  font-extrabold text-white bg-red-800 px-4 py-1 rounded-full shadow-lg font-eczar">
-                                🎉 10% OFF
-                            </span>
-                        </div>
-                        
+                       
+                        <!-- Countdown Timer Heading -->
+                <div class="text-center mb-2">
+                    <!-- <div class="text-white text-base font-tiro font-bold mb-1">
+                        ⏰ आज का ऑफर समाप्त होने में:
+                    </div> -->
+                    <div id="countdown" class="text-white text-lg max-[450px]:text-lg font-extrabold font-eczar">
+                       00:00:00
+                    </div>
+                </div>
                         <!-- Order Button -->
                         <button id="ctaButton" onclick="scrollToContact()"
-                            class="cta-button bg-brand-secondary text-red-700 px-6 py-2 rounded-lg font-eczar font-bold text-lg transition-all duration-300 shadow-lg hover:scale-105 pulse-animation glow-effect whitespace-nowrap"
+                            class="cta-button bg-brand-secondary text-red-700 px-4 py-2 rounded-lg font-eczar font-bold text-lg transition-all duration-300 shadow-lg hover:scale-105 pulse-animation glow-effect whitespace-nowrap"
                             onmouseenter="this.classList.add('shake')" onmouseleave="this.classList.remove('shake')">
                             🛒 अभी ऑर्डर करें
                         </button>
